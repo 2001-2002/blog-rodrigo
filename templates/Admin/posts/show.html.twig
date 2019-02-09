@@ -1,0 +1,76 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+<section class="content-header">
+    <h1>
+        Post
+        <small>Mostrar Post</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <table class="table">
+        <tbody>
+        {% if is_granted('ROLE_ADMIN') %}
+            <tr>
+                <th>Id</th>
+                <td>{{ post.id }}</td>
+            </tr>
+        {% endif %}
+            <tr>
+                <th>Título</th>
+                <td>{{ post.tittle }}</td>
+            </tr>
+            <tr>
+                <th>Descrição</th>
+                <td>{{ post.description }}</td>
+            </tr>
+            <tr>
+                <th>Conteúdo</th>
+                <td>{{ post.content }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ post.slug }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                {% if post.status == 1 %}
+                    <td>Ativo</td>
+                {% else %}
+                    <td>Inativo</td>
+                {% endif %}
+
+            </tr>
+            <tr>
+                <th>Criado em</th>
+                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Atualizado em</th>
+                <td>{{ post.updatedAt ? post.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Autor</th>
+                <td>{{ post.author }}</td>
+            </tr>
+            <tr>
+                <th>Categoria</th>
+                <td>{{ post.categoryCollection|join(", ") }}</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <a href="{{ path('admin_post') }}" class="btn btn-default">Voltar</a>
+
+    <a href="{{ path('admin_post_update', {'id': post.id}) }}" class="btn btn-primary">Editar</a>
+</section>
+
+{% endblock %}

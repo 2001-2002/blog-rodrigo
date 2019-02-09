@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Smart Brain</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/home/assets/css/main.css" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/home/images/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/home/images/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/home/images/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/home/images/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/home/images/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/home/images/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/home/images/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/home/images/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/home/images/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/home/images/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/home/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/home/images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/home/images/favicon-16x16.png">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">    <noscript><link rel="stylesheet" href="/home/assets/css/noscript.css" /></noscript>
+</head>
+<body class="homepage is-preload">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="{{ path('home') }}" id="logo">Smart Brain</a></h1>
+                <hr />
+                <p>Estimulando sua criatividade!</p>
+            </header>
+            <footer>
+                <a href="#banner" class="button circled scrolly">Start</a>
+            </footer>
+        </div>
+
+        <!-- Nav -->
+        <nav id="nav">
+            {% block menu %}
+            {% endblock %}
+        </nav>
+
+    </div>
+
+    <!-- Banner -->
+    <section id="banner">
+        <header>
+            <h2>Olá, seja bem vindo(a) ao <strong>Smart Brain</strong>.</h2>
+            <p>
+                Somos uma comunidade que acredita que o Rodrigo
+                não decidiu o que somos, mas que ele vai decidir.
+            </p>
+        </header>
+    </section>
+
+    <!-- Carousel -->
+    <section class="carousel">
+        <div class="reel">
+
+            {% block carousel %}
+            {% endblock %}
+
+
+        </div>
+    </section>
+
+    <!-- Main -->
+    {% block body %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12">
+
+                    <!-- Contact -->
+                    <section class="contact">
+                        <header>
+                            <h3>Gostou do nosso conteúdo?</h3>
+                        </header>
+                        <p>Nos siga nas rede sociais para ficar ligado sempre que sair uma nova publicação!</p>
+                        <ul class="icons">
+                            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                            <li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+                            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                            <li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+                        </ul>
+                    </section>
+
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <ul class="menu">
+                            <li>&copy; Rodrigo Carvalho. Todo os direitos reservados.</li>
+                            <li>Desenvolvedor: <a href="#">Guilherme Felipe</a></li>
+                            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="home/assets/js/jquery.min.js"></script>
+<script src="home/assets/js/jquery.dropotron.min.js"></script>
+<script src="home/assets/js/jquery.scrolly.min.js"></script>
+<script src="home/assets/js/jquery.scrollex.min.js"></script>
+<script src="home/assets/js/browser.min.js"></script>
+<script src="home/assets/js/breakpoints.min.js"></script>
+<script src="home/assets/js/util.js"></script>
+<script src="home/assets/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Twitter Bootstrap v3 Sliding pagination control implementation.
+ *
+ * View that can be used with the pagination module
+ * from the Twitter Bootstrap CSS Toolkit
+ * http://getbootstrap.com/components/#pagination
+ *
+ * @author Pablo Díez <pablodip@gmail.com>
+ * @author Jan Sorgalla <jsorgalla@gmail.com>
+ * @author Artem Ponomarenko <imenem@inbox.ru>
+ * @author Artem Zabelin <artjomzabelin@gmail.com>
+ */
+#}
+
+{% if pageCount > 1 %}
+    <ul class="actions pagination">
+
+        {% if previous is defined %}
+            <li>
+                <a rel="prev" class="botao small " href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&lt;&nbsp;&nbsp;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <span>&lt;&nbsp;&nbsp;{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</span>
+            </li>
+        {% endif %}
+
+
+
+        {% if next is defined %}
+            <li>
+                <a rel="next" class="botao small " href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;&nbsp;&nbsp;&nbsp;&gt;</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <span>{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}&nbsp;&nbsp;&nbsp;&nbsp;&gt;</span>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

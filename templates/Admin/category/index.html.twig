@@ -1,0 +1,85 @@
+{% extends 'Admin/admin_layout.html.twig' %}
+
+{% block title %}Category index{% endblock %}
+
+{% block body %}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Categorias
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    {% include 'includes/message.html.twig' %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="col-md-12">
+            <a href="{{ path('category_new') }}" style="float:right" class="btn btn-md btn-success">Criar Categoria</a>
+        </div>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>Id</th>
+                {% endif %}
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Slug</th>
+                <th>Criado em</th>
+                <th>Atualizado em</th>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <th>Ações</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>{{ category.id }}</td>
+                {% endif %}
+                <td>{{ category.name }}</td>
+                <td>{{ category.description }}</td>
+                <td>{{ category.slug }}</td>
+                <td>{{ category.createdAt ? category.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ category.updatedAt ? category.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <td>
+                        <ul>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Ações &nbsp;&nbsp;<i class="fa fa-caret-down"></i></button>
+                                <ul class="dropdown-menu">
+
+                                    <li>
+                                        <a href="{{ path('category_show', {'id': category.id}) }}">ver</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('category_edit', {'id': category.id}) }}">editar</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('category_delete', {'id': category.id}) }}" onclick="return confirm('Deseja mesmo deletar esse item?');" >excluir</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </ul>
+                    </td>
+                {% endif %}
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Sem registros</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

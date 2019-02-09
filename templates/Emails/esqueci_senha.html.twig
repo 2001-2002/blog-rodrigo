@@ -1,0 +1,12 @@
+<h1>Olá {{ name }}, tudo bem?</h1>
+
+<p>Parece que você esqueceu sua senha!</p>
+<p>Alteramos sua senha e foi gerada uma nova senha:</p>
+
+<p>
+    Usuário: <b>{{ username }}</b>
+    <br>
+    Senha: <b>{{ password }}</b>
+</p>
+
+<small>Email enviado em {{ "now"|date('d/m/Y H:i:s') }}</small>

@@ -1,0 +1,57 @@
+{% extends ('site/home.html.twig') %}
+
+{% block menu %}
+    <ul>
+        <li><a href="{{ path('home') }}">Inicio</a></li>
+        <li><a href="{{ path('admin_post') }}">Painel Admin</a></li>
+        {% for c in categories %}
+            <li><a href="{{ path('category_site', {'slug': c.slug}) }}">{{ c.name }}</a></li>
+        {% endfor %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li><a href="{{ path('logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ path('login') }}">Login</a></li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block carousel %}
+    {% for p in postsCarousel %}
+        <article>
+            {% if p.image %}
+                <a href="{{ path('single', {'slug':p.slug, 'id':p.id }) }}" class="image featured"><img src="uploads\images\{{ p.image }}" alt="" /></a>
+            {% else %}
+                <a href="{{ path('single', {'slug':p.slug, 'id':p.id }) }}" class="image featured"><img src="home/images/pic01.jpg" alt="" /></a>
+            {% endif %}
+            <header>
+                <h3><a href="{{ path('single', {'slug':p.slug, 'id':p.id }) }}">{{ p.tittle }}</a></h3>
+            </header>
+            <p>{{ p.description }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
+
+{% block body %}
+    {% for p in posts %}
+        <div class="wrapper style2">
+
+            <article id="main" class="container special">
+                <a href="#" class="image featured"><img src="uploads\images\{{ p.image }}" alt="" /></a>
+                <header>
+                    <h2><a href="{{ path('single', {'slug':p.slug, 'id':p.id }) }}">{{ p.tittle }}</a></h2>
+                    <p>
+                        {{ p.description }}
+                    </p>
+                </header>
+                <p>
+                    {{ p.content[:255] }}...
+                </p>
+                <footer>
+                    <a href="{{ path('single', {'slug':p.slug, 'id':p.id }) }}" class="button">Continue Reading</a>
+                </footer>
+            </article>
+
+        </div>
+    {% endfor %}
+    {{ knp_pagination_render(posts) }}
+{% endblock %}
