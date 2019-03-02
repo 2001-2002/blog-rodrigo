@@ -58,7 +58,11 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "compile": [
+            "bin/console doctrine:database:create --if-not-exists",
+            "bin/console doctrine:schema:update -f"
+       ]
     },
     "conflict": {
         "symfony/symfony": "*"
